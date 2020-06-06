@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Music Player (Mockup)</string>
+    <string name="mozart_sonata" translatable="false">Mozart - Sonata Number 16 in C major, K545 (1st movement)</string>
+    <string name="play_pause_button">Play/Pause button</string>
 </resources>
