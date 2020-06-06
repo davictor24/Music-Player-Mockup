@@ -2,4 +2,10 @@
     <string name="app_name">Music Player (Mockup)</string>
     <string name="mozart_sonata" translatable="false">Mozart - Sonata Number 16 in C major, K545 (1st movement)</string>
     <string name="play_pause_button">Play/Pause button</string>
+    <string name="welcome_back">Welcome back, Victor\nHere are your albums</string>
+    <string name="recently_played">Recently played</string>
+    <string name="favourites">Favourites</string>
+    <string name="popular">Popular</string>
+    <string name="recommended">Recommended</string>
+    <string name="album_art">ALbum art</string>
 </resources>
