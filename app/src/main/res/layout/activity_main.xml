@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -62,11 +62,23 @@
                 card_view:cardElevation="4dp"
                 card_view:contentPadding="8dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/favourites"
-                    android:textSize="24sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/favourites"
+                        android:textSize="24sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/favourites"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -78,11 +90,23 @@
                 card_view:cardElevation="4dp"
                 card_view:contentPadding="8dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/popular"
-                    android:textSize="24sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/popular"
+                        android:textSize="24sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/popular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -94,17 +118,29 @@
                 card_view:cardElevation="4dp"
                 card_view:contentPadding="8dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/recommended"
-                    android:textSize="24sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recommended"
+                        android:textSize="24sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recommended"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
