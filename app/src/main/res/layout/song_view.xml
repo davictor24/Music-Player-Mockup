@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    tools:ignore="UnusedAttribute">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/song_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12dp"
+        tools:ignore="RtlHardcoded"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/song_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/song_duration"
+        android:layout_toRightOf="@id/song_number"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded"
+        tools:text="Sonata Number 16 in C major" />
+
+    <TextView
+        android:id="@+id/song_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/song_name"
+        android:layout_toLeftOf="@id/song_duration"
+        android:layout_toRightOf="@id/song_number"
+        android:singleLine="true"
+        tools:ignore="RtlHardcoded"
+        tools:text="Mozart" />
+
+    <TextView
+        android:id="@+id/song_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="12dp"
+        tools:ignore="RtlHardcoded"
+        tools:text="4:31" />
+
+</RelativeLayout>
