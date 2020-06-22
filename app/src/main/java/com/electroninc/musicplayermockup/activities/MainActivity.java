@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
         findViewById(R.id.now_playing).setSelected(true);
         Random random = new Random();
 
+        // TODO: Save the generated data in a ViewModel
         // Recently played
         for (int i = 1; i <= 10; i++) {
             recentlyPlayedAlbums.add(new Album(

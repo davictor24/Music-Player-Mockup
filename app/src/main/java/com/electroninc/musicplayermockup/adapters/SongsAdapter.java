@@ -135,8 +135,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
 
         @Override
         public void onClick(View view) {
-            // TODO
-//            itemClickListener.onItemClicked(...);
+            itemClickListener.onItemClicked(getAdapterPosition() - 1);
         }
 
         @Override

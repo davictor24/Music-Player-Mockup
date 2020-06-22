@@ -21,6 +21,7 @@ import java.util.Random;
 public class SongListActivity extends AppCompatActivity implements SongsAdapter.ItemClickListener {
 
     public static final String INTENT_ALBUM = "album";
+    private List<Song> songs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,8 @@ public class SongListActivity extends AppCompatActivity implements SongsAdapter.
         Album album = (Album) intent.getSerializableExtra(INTENT_ALBUM);
         if (album == null) return;
 
-        List<Song> songs = new ArrayList<>();
+        // TODO: Save the generated data in a ViewModel
+        songs = new ArrayList<>();
         for (int i = 1; i <= 20; i++)
             songs.add(new Song(
                     album.getName() + " song " + i,
@@ -56,7 +58,10 @@ public class SongListActivity extends AppCompatActivity implements SongsAdapter.
 
     @Override
     public void onItemClicked(int itemId) {
-        // TODO
+        Song song = songs.get(itemId);
+        Intent intent = new Intent(this, SongActivity.class);
+        intent.putExtra(SongActivity.INTENT_SONG, song);
+        startActivity(intent);
     }
 
 }
