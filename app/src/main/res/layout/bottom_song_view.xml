@@ -52,7 +52,7 @@
             android:layout_height="32sp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/play_pause_button"
-            android:src="@drawable/ic_play_circle_outline" />
+            android:src="@drawable/ic_play" />
 
     </LinearLayout>
 
