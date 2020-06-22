@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
                 false
         ));
         recyclerView.setAdapter(albumsAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
     }
 
 }
