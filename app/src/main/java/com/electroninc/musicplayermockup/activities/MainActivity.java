@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.electroninc.musicplayermockup.R;
 import com.electroninc.musicplayermockup.adapters.AlbumsAdapter;
 import com.electroninc.musicplayermockup.models.Album;
+import com.electroninc.musicplayermockup.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,8 +86,9 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
         findViewById(R.id.bottom_song_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Do nothing
-                // This was added to activate 'selectableItemBackground'
+                Intent intent = new Intent(MainActivity.this, SongActivity.class);
+                intent.putExtra(SongActivity.INTENT_SONG, Utils.getDummySong(MainActivity.this));
+                startActivity(intent);
             }
         });
     }

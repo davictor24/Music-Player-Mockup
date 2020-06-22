@@ -39,6 +39,7 @@ public class SongActivity extends AppCompatActivity {
         albumArt.setImageResource(song.getAlbumArt());
         albumName.setText(song.getAlbum());
         nowPlaying.setText(song.getName());
+        nowPlaying.setSelected(true);
         artistName.setText(song.getArtist());
         songDuration.setText(Utils.formatDuration(song.getLength()));
     }

@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.transition.TransitionInflater;
+import android.view.View;
 
 import com.electroninc.musicplayermockup.R;
 import com.electroninc.musicplayermockup.adapters.SongsAdapter;
 import com.electroninc.musicplayermockup.models.Album;
 import com.electroninc.musicplayermockup.models.Song;
+import com.electroninc.musicplayermockup.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,15 @@ public class SongListActivity extends AppCompatActivity implements SongsAdapter.
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         SongsAdapter songsAdapter = new SongsAdapter(this, songs, this);
         recyclerView.setAdapter(songsAdapter);
+
+        findViewById(R.id.bottom_song_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SongListActivity.this, SongActivity.class);
+                intent.putExtra(SongActivity.INTENT_SONG, Utils.getDummySong(SongListActivity.this));
+                startActivity(intent);
+            }
+        });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             getWindow().setSharedElementEnterTransition(TransitionInflater.from(this)
