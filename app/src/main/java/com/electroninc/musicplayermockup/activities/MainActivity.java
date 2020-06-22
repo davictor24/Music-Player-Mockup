@@ -1,12 +1,15 @@
 package com.electroninc.musicplayermockup.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.electroninc.musicplayermockup.R;
 import com.electroninc.musicplayermockup.adapters.AlbumsAdapter;
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
     }
 
     @Override
-    public void onItemClicked(int type, int itemId) {
+    public void onItemClicked(ImageView imageView, int type, int itemId) {
         Album album = null;
         switch (type) {
             case Album.TYPE_RECENTLY_PLAYED:
@@ -108,7 +111,17 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
         if (album != null) {
             Intent intent = new Intent(this, SongListActivity.class);
             intent.putExtra(SongListActivity.INTENT_ALBUM, album);
-            startActivity(intent);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                imageView.setTransitionName(getString(R.string.album_art_transition));
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        this,
+                        imageView,
+                        imageView.getTransitionName()
+                );
+                startActivity(intent, optionsCompat.toBundle());
+            } else {
+                startActivity(intent);
+            }
         }
     }
 

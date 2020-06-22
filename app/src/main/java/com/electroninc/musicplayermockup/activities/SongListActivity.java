@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.transition.TransitionInflater;
 
 import com.electroninc.musicplayermockup.R;
 import com.electroninc.musicplayermockup.adapters.SongsAdapter;
@@ -46,6 +48,10 @@ public class SongListActivity extends AppCompatActivity implements SongsAdapter.
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         SongsAdapter songsAdapter = new SongsAdapter(this, songs, this);
         recyclerView.setAdapter(songsAdapter);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            getWindow().setSharedElementEnterTransition(TransitionInflater.from(this)
+                    .inflateTransition(R.transition.album_art_transition));
     }
 
     @Override

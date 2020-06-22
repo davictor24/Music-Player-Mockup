@@ -2,6 +2,7 @@ package com.electroninc.musicplayermockup.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,9 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
                 headerViewHolder.getAlbumArt().setImageResource(indexSong.getAlbumArt());
                 headerViewHolder.getAlbumInfo().setText(indexSong.getAlbum()
                         + " | " + len + ((len == 1) ? " song" : " songs"));
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    headerViewHolder.getAlbumArt().setTransitionName(context.getString(R.string.album_art_transition));
             }
         } else {
             MainViewHolder mainViewHolder = (MainViewHolder) holder;
