@@ -4,8 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
 
 import com.electroninc.musicplayermockup.R;
 import com.electroninc.musicplayermockup.adapters.AlbumsAdapter;
@@ -17,14 +18,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements AlbumsAdapter.ItemClickListener {
 
-    private static final int[] albumArts = new int[]{
+    public static final int[] ALBUM_ARTS = new int[]{
             R.drawable.generic_album_art_1,
             R.drawable.generic_album_art_2,
             R.drawable.generic_album_art_3,
             R.drawable.generic_album_art_4
     };
-    private static final int genericArtCount = albumArts.length;
-    private Random random = new Random();
+    public static final int GENERIC_ART_COUNT = ALBUM_ARTS.length;
 
     private List<Album> recentlyPlayedAlbums = new ArrayList<>();
     private List<Album> favouriteAlbums = new ArrayList<>();
@@ -36,13 +36,14 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.now_playing).setSelected(true);
+        Random random = new Random();
 
         // Recently played
         for (int i = 1; i <= 10; i++) {
             recentlyPlayedAlbums.add(new Album(
                     "Recently played " + i,
                     Album.TYPE_RECENTLY_PLAYED,
-                    albumArts[random.nextInt(genericArtCount)])
+                    ALBUM_ARTS[random.nextInt(GENERIC_ART_COUNT)])
             );
         }
         setupRecyclerView(recentlyPlayedAlbums, R.id.recently_played);
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
             favouriteAlbums.add(new Album(
                     "Favourites " + i,
                     Album.TYPE_FAVOURITES,
-                    albumArts[random.nextInt(genericArtCount)])
+                    ALBUM_ARTS[random.nextInt(GENERIC_ART_COUNT)])
             );
         }
         setupRecyclerView(favouriteAlbums, R.id.favourites);
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
             popularAlbums.add(new Album(
                     "Popular " + i,
                     Album.TYPE_POPULAR,
-                    albumArts[random.nextInt(genericArtCount)])
+                    ALBUM_ARTS[random.nextInt(GENERIC_ART_COUNT)])
             );
         }
         setupRecyclerView(popularAlbums, R.id.popular);
@@ -72,10 +73,18 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
             recommendedAlbums.add(new Album(
                     "Recommended " + i,
                     Album.TYPE_RECOMMENDED,
-                    albumArts[random.nextInt(genericArtCount)])
+                    ALBUM_ARTS[random.nextInt(GENERIC_ART_COUNT)])
             );
         }
         setupRecyclerView(recommendedAlbums, R.id.recommended);
+
+        findViewById(R.id.bottom_song_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Do nothing
+                // This was added to activate 'selectableItemBackground'
+            }
+        });
     }
 
     @Override
@@ -96,8 +105,11 @@ public class MainActivity extends AppCompatActivity implements AlbumsAdapter.Ite
                 break;
         }
 
-        if (album != null)
-            Toast.makeText(this, album.getName(), Toast.LENGTH_SHORT).show();
+        if (album != null) {
+            Intent intent = new Intent(this, SongListActivity.class);
+            intent.putExtra(SongListActivity.INTENT_ALBUM, album);
+            startActivity(intent);
+        }
     }
 
     private void setupRecyclerView(List<Album> albums, int viewResource) {

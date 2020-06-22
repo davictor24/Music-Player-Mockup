@@ -1,6 +1,8 @@
 package com.electroninc.musicplayermockup.models;
 
-public class Album {
+import java.io.Serializable;
+
+public class Album implements Serializable {
     public static final int TYPE_RECENTLY_PLAYED = 1;
     public static final int TYPE_FAVOURITES = 2;
     public static final int TYPE_POPULAR = 3;

@@ -60,7 +60,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
                 Song indexSong = songs.get(0);
                 headerViewHolder.getAlbumArt().setImageResource(indexSong.getAlbumArt());
                 headerViewHolder.getAlbumInfo().setText(indexSong.getAlbum()
-                        + " | " + len + ((len == 1) ? "song" : "songs"));
+                        + " | " + len + ((len == 1) ? " song" : " songs"));
             }
         } else {
             MainViewHolder mainViewHolder = (MainViewHolder) holder;

@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/album_art"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="240dp"
             android:contentDescription="@string/album_art"
             android:scaleType="centerCrop"
             tools:src="@drawable/generic_album_art_4" />
@@ -28,6 +28,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="12dp"
             android:textSize="16sp"
+            android:textStyle="bold"
             tools:text="Favourites 1 | 20 songs" />
 
     </LinearLayout>

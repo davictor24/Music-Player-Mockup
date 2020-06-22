@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_song_view"
     android:layout_width="match_parent"
     android:layout_height="52dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    tools:ignore="UnusedAttribute">
 
     <ProgressBar
         android:id="@+id/play_progress"
@@ -49,9 +52,7 @@
             android:layout_height="32sp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/play_pause_button"
-            android:foreground="?attr/selectableItemBackground"
-            android:src="@drawable/ic_play_circle_outline"
-            tools:ignore="UnusedAttribute" />
+            android:src="@drawable/ic_play_circle_outline" />
 
     </LinearLayout>
 
