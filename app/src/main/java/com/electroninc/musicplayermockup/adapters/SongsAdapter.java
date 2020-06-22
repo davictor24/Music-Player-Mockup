@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.electroninc.musicplayermockup.R;
 import com.electroninc.musicplayermockup.models.Song;
+import com.electroninc.musicplayermockup.utils.Utils;
 
 import java.util.List;
 
@@ -68,8 +69,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
             mainViewHolder.getSongNumber().setText(String.valueOf(position));
             mainViewHolder.getSongName().setText(song.getName());
             mainViewHolder.getSongArtist().setText(song.getArtist());
-            // TODO: Correct this
-            mainViewHolder.getSongDuration().setText(String.valueOf(song.getLength()));
+            mainViewHolder.getSongDuration().setText(Utils.formatDuration(song.getLength()));
         }
     }
 
