@@ -139,10 +139,13 @@
             <ImageView
                 android:id="@+id/rewind"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/rewind"
-                android:src="@drawable/ic_fast_rewind" />
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/ic_fast_rewind"
+                tools:ignore="UnusedAttribute" />
 
             <ImageView
                 android:id="@+id/play_pause"
@@ -150,15 +153,20 @@
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/play_pause_button"
-                android:src="@drawable/ic_play" />
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_play"
+                tools:ignore="UnusedAttribute" />
 
             <ImageView
                 android:id="@+id/forward"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/forward"
-                android:src="@drawable/ic_fast_forward" />
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/ic_fast_forward"
+                tools:ignore="UnusedAttribute" />
 
         </LinearLayout>
 

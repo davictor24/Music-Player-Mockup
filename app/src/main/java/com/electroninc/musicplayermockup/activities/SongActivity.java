@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,11 @@ import com.electroninc.musicplayermockup.utils.Utils;
 public class SongActivity extends AppCompatActivity {
 
     public static final String INTENT_SONG = "song";
+
+    // TODO
+    // Although this screen is locked in portrait,
+    // we should still use a ViewModel for this variable
+    private boolean isPlaying = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,7 @@ public class SongActivity extends AppCompatActivity {
         TextView artistName = findViewById(R.id.artist_name);
         TextView songDuration = findViewById(R.id.song_duration);
         ImageView rewind = findViewById(R.id.rewind);
-        ImageView playPause = findViewById(R.id.play_pause);
+        final ImageView playPause = findViewById(R.id.play_pause);
         ImageView forward = findViewById(R.id.forward);
 
         albumArtBackground.setImageResource(song.getAlbumArt());
@@ -42,5 +48,34 @@ public class SongActivity extends AppCompatActivity {
         nowPlaying.setSelected(true);
         artistName.setText(song.getArtist());
         songDuration.setText(Utils.formatDuration(song.getLength()));
+
+        rewind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Do nothing
+                // This is just to activate selectableItemBackground :)
+            }
+        });
+
+        forward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Do nothing
+                // This is just to activate selectableItemBackground :)
+            }
+        });
+
+        playPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPlaying) {
+                    playPause.setImageResource(R.drawable.ic_play);
+                    isPlaying = false;
+                } else {
+                    playPause.setImageResource(R.drawable.ic_pause);
+                    isPlaying = true;
+                }
+            }
+        });
     }
 }
