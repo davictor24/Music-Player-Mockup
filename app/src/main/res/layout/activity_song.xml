@@ -30,18 +30,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/playing_from_playlist"
+            android:text="@string/playing_from_album"
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/playlist_name"
+            android:id="@+id/album_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:text="Playlist name goes here" />
+            tools:text="Album name goes here" />
 
         <View
             android:layout_width="match_parent"
